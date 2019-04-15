@@ -1,24 +1,22 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent">
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/toolbar"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_eventlist"
+            android:id="@+id/image_recycler"
+            android:layout_below="@id/toolbar_top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"/>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_open_camera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:layout_anchor="@id/recyclerview_eventlist"
-            app:layout_anchorGravity="bottom|right|end"
-            app:borderWidth="0dp" />
+    <ProgressBar android:layout_width="wrap_content"
+                 android:id="@+id/progress_bar"
+                 android:layout_centerInParent="true"
+                 android:layout_height="wrap_content"/>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

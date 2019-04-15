@@ -3,67 +3,60 @@ package com.mygatedemo.app.activities
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mygatedemo.app.data.User
-import com.mygatedemo.app.repositories.UserRepository
-import com.orhanobut.logger.Logger
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.observers.DisposableObserver
-import io.reactivex.schedulers.Schedulers
+import com.mygatedemo.app.data.model.ApiResponse
+import com.mygatedemo.app.repositories.NetworkRepository
+import com.orhanobut.hawk.Hawk
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 
-class MainActivityViewModel(private val userRepository: UserRepository) : ViewModel() {
+class MainActivityViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
 
-    private var userResult: MutableLiveData<List<User>> = MutableLiveData()
-    private var userError: MutableLiveData<String> = MutableLiveData()
-    private var userLoader: MutableLiveData<Boolean> = MutableLiveData()
-    private lateinit var disposableObserver: DisposableObserver<List<User>>
+    private var apiResult: MutableLiveData<ApiResponse> = MutableLiveData()
+    private var apiError: MutableLiveData<String> = MutableLiveData()
+    private var apiLoader: MutableLiveData<Boolean> = MutableLiveData()
+    private val IMAGE_DATA_KEY = "image_data"
 
-    fun userResult(): LiveData<List<User>> {
-        return userResult
+    private val parentJob = Job()
+
+    private val coroutineContext: CoroutineContext
+        get() = parentJob + Dispatchers.Default
+
+    private val scope = CoroutineScope(coroutineContext)
+
+
+    fun imageDataResult(): LiveData<ApiResponse> {
+        return apiResult
     }
 
-    fun userError(): LiveData<String> {
-        return userError
+    fun apiErrorEvent(): LiveData<String> {
+        return apiError
     }
 
-    fun userLoader(): LiveData<Boolean> {
-        return userLoader
+    fun apiLoaderEvent(): LiveData<Boolean> {
+        return apiLoader
     }
 
-    fun getAllUsersFromDb() {
-
-        disposableObserver = object : DisposableObserver<List<User>>() {
-
-            override fun onComplete() {
-                Logger.d("User Fetch Successful")
-            }
-
-            override fun onNext(t: List<User>) {
-                userResult.postValue(t)
-                userLoader.postValue(false)
-            }
-
-            override fun onError(e: Throwable) {
-                userError.postValue(e.localizedMessage)
-                userLoader.postValue(false)
-            }
+    fun loadDataFromServer() {
+        scope.launch {
+            val t = networkRepository.getImageDataFromServer()
+            apiResult.postValue(t)
+            apiLoader.postValue(false)
         }
-
-        userRepository.getUserList()
-            .subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe(disposableObserver)
     }
 
 
-    fun saveUserToDb(user: User) {
-        userRepository.saveUser(user)
+    fun loadDataFromLocalCache() {
+        val data = Hawk.get<ApiResponse>(IMAGE_DATA_KEY)
+        data?.let {
+            apiResult.postValue(data)
+            apiLoader.postValue(false)
+        }
     }
 
 
     fun disposeElements() {
-        if (!disposableObserver.isDisposed) disposableObserver.dispose()
+       coroutineContext.cancel()
     }
-
 
 }
