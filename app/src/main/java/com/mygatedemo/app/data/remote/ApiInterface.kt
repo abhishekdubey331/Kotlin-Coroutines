@@ -12,7 +12,7 @@ import retrofit2.http.GET
  */
 interface ApiInterface {
 
-    @GET("b/5c89f7d65ce1aa6d9f9bf3a9")
+    @GET("b/5c89f7d65ce1aa6d9f9bf3a90")
     fun getDataFromServerAsync(): Deferred<Response<ApiResponse>>
 
 }

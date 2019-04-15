@@ -8,11 +8,9 @@ class NetworkRepository(private val apiInterface: ApiInterface) : BaseRepository
 
     suspend fun getImageDataFromServer(): ApiResponse? {
 
-        val movieResponse = safeApiCall(
-            call = { apiInterface.getDataFromServerAsync().await() },
-            errorMessage = "Error Fetching Popular Movies"
+        return safeApiCall(
+            call = { apiInterface.getDataFromServerAsync().await() }
         )
-        return movieResponse
     }
 
 
