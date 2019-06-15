@@ -1,12 +1,12 @@
-package com.mygatedemo.app.activities
+package com.coroutines.app.activities
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mygatedemo.app.R
-import com.mygatedemo.app.data.model.ImageData
-import com.mygatedemo.app.utils.ImageHelper
+import com.coroutines.app.R
+import com.coroutines.app.data.model.ImageData
+import com.coroutines.app.utils.ImageHelper
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_image.*
 

@@ -1,4 +1,4 @@
-package com.mygatedemo.app.data.model
+package com.coroutines.app.data.model
 
 
 sealed class Result<out T: Any> {

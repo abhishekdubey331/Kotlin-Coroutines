@@ -1,7 +1,7 @@
-package com.mygatedemo.app
+package com.coroutines.app
 
 import android.app.Application
-import com.mygatedemo.app.di.AppModule
+import com.coroutines.app.di.AppModule
 import com.orhanobut.hawk.Hawk
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger

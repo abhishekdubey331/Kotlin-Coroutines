@@ -1,7 +1,7 @@
-package com.mygatedemo.app.repositories
+package com.coroutines.app.repositories
 
-import com.mygatedemo.app.data.model.Result
-import com.mygatedemo.app.utils.Utils
+import com.coroutines.app.data.model.Result
+import com.coroutines.app.utils.Utils
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope

@@ -1,8 +1,8 @@
-package com.mygatedemo.app.utils
+package com.coroutines.app.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.mygatedemo.app.R
+import com.coroutines.app.R
 
 
 class ToolbarHelper {

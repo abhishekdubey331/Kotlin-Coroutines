@@ -1,6 +1,6 @@
-package com.mygatedemo.app.data.remote
+package com.coroutines.app.data.remote
 
-import com.mygatedemo.app.data.model.ApiResponse
+import com.coroutines.app.data.model.ApiResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET

@@ -1,12 +1,12 @@
-package com.mygatedemo.app.di
+package com.coroutines.app.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.mygatedemo.app.activities.MainActivityViewModel
-import com.mygatedemo.app.data.remote.ApiInterface
-import com.mygatedemo.app.repositories.NetworkRepository
-import com.mygatedemo.app.utils.ImageHelper
-import com.mygatedemo.app.utils.ToolbarHelper
-import com.mygatedemo.app.utils.Utils
+import com.coroutines.app.activities.MainActivityViewModel
+import com.coroutines.app.data.remote.ApiInterface
+import com.coroutines.app.repositories.NetworkRepository
+import com.coroutines.app.utils.ImageHelper
+import com.coroutines.app.utils.ToolbarHelper
+import com.coroutines.app.utils.Utils
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.ext.koin.viewModel

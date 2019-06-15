@@ -1,4 +1,4 @@
-package com.mygatedemo.app.utils
+package com.coroutines.app.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

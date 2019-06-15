@@ -1,4 +1,4 @@
-package com.mygatedemo.app.activities
+package com.coroutines.app.activities
 
 import android.os.Bundle
 import android.view.View
@@ -8,11 +8,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.mygatedemo.app.R
-import com.mygatedemo.app.data.model.ApiResponse
-import com.mygatedemo.app.utils.ImageHelper
-import com.mygatedemo.app.utils.ToolbarHelper
-import com.mygatedemo.app.utils.Utils
+import com.coroutines.app.R
+import com.coroutines.app.data.model.ApiResponse
+import com.coroutines.app.utils.ImageHelper
+import com.coroutines.app.utils.ToolbarHelper
+import com.coroutines.app.utils.Utils
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject

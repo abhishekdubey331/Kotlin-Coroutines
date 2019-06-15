@@ -1,10 +1,10 @@
-package com.mygatedemo.app.activities
+package com.coroutines.app.activities
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mygatedemo.app.data.model.ApiResponse
-import com.mygatedemo.app.repositories.NetworkRepository
+import com.coroutines.app.data.model.ApiResponse
+import com.coroutines.app.repositories.NetworkRepository
 import com.orhanobut.hawk.Hawk
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext

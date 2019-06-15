@@ -1,4 +1,4 @@
-package com.mygatedemo.app
+package com.coroutines.app
 
 import org.junit.Test
 
